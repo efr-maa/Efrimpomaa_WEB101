@@ -1,481 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- head
-         Purpose:
-         - Title shown in the browser tab
-         - Favicon link (small tab image)
-         - Fonts + styles for the whole page
-    -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mimi's Pet Corner — Stories of a Cat & Her Boy</title>
-    <link rel="icon" href="./img/Mimi_Duke.png" />
+    <head>
+        <!-- head
 
-    <!-- Storybook display face + friendly rounded body face -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        Purpose:
+        - Title used here shows up in the browser tab
+        - Link to the favicon (small image that appears in the browser tab)
+        - Link to the CSS file (used to style the webpage)
 
-    <style>
-        /* ===== Design tokens ===== */
-        :root {
-            --blush:      #fbe7f0;   /* page background */
-            --blush-deep: #f4cfe1;   /* card / band fill  */
-            --rose:       #ec6fa8;   /* primary pink      */
-            --rose-deep:  #d64f92;   /* hover / accents   */
-            --plum:       #5c3d4d;   /* body text         */
-            --cream:      #fffdf9;   /* card surface      */
-            --sun:        #ffd166;   /* warm highlight    */
-            --mint:       #8fd6c0;   /* secondary accent  */
-            --shadow:     0 10px 30px rgba(214, 79, 146, 0.18);
-            --radius:     22px;
-        }
+        When To Modify:
+        - [ ] Project 2 (REQUIRED FEATURE) 
+        - [ ] Project 2 (STRETCH FEATURE) (favicon)
+        - [ ] Any time after
+        -->
+        <title>The Sweet Cat Mimi</title>
+        <link rel="icon" href="./img/Mimi_Duke.png">
+        <link rel="stylesheet" href="styles.css">
+        
+    </head>
+    
+    <body>
+    
+        <!-- navbar
 
-        * { box-sizing: border-box; }
+Purpose:
+- Navigation bar that allows users to jump to different sections of the webpage
+- Also holds buttons for user settings (dark mode, reduce motion)
+-->
+<div class="navbar">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#links">Links</a></li>
+    </ul>
+</div>
 
-        html { scroll-behavior: smooth; }
+        <!-- headings
 
-        body {
-            margin: 0;
-            background:
-                radial-gradient(1200px 600px at 80% -10%, #fff2f8 0%, transparent 60%),
-                var(--blush);
-            font-family: "Quicksand", system-ui, sans-serif;
-            color: var(--plum);
-            line-height: 1.65;
-        }
+        Purpose:
+        - Main header section of the webpage
+        - Contains the title, subtitle, image, and key buttons for the webpage
 
-        /* Respect users who prefer less motion */
-        @media (prefers-reduced-motion: reduce) {
-            * { animation: none !important; transition: none !important; scroll-behavior: auto; }
-        }
+        When To Modify:
+        - [ ] Project 2 (REQUIRED FEATURE) 
+        - [ ] Project 3 (REQUIRED FEATURE) 
+        - [ ] Project 4 (REQUIRED FEATURE) 
+        - [ ] Any time after
+        -->
+        <div class="header-container">
 
-        a { color: var(--rose-deep); }
+    <div class="header-item">
+        <img id="header-img" src="./img/logo500.png" />
+    </div>
 
-        /* ===== Navbar ===== */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 12px clamp(16px, 4vw, 48px);
-            background: rgba(255, 253, 249, 0.85);
-            backdrop-filter: blur(8px);
-            border-bottom: 2px solid var(--blush-deep);
-        }
-        .navbar .brand {
-            font-family: "Baloo 2", cursive;
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--rose-deep);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-        .navbar nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
-        .navbar nav a {
-            text-decoration: none;
-            color: var(--plum);
-            font-weight: 600;
-            padding: 8px 14px;
-            border-radius: 999px;
-            transition: background 0.2s, color 0.2s;
-        }
-        .navbar nav a:hover,
-        .navbar nav a:focus-visible {
-            background: var(--rose);
-            color: #fff;
-            outline: none;
-        }
+    <div class="header-item">
+        <h1>Let's Talk Everything Pet</h1>
+        <h2>Want to see more?</h2>
 
-        /* ===== Shared layout ===== */
-        .wrap { max-width: 1000px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); }
+        <button class="header-button" type="button">
+            Learn About Mimi
+        </button>
 
-        section { padding: clamp(40px, 7vw, 80px) 0; }
+        <button class="header-button" type="button">
+            Learn About Duke
+        </button>
+    </div>
 
-        .eyebrow {
-            display: inline-block;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            font-size: 0.78rem;
-            color: var(--rose-deep);
-            background: var(--cream);
-            padding: 6px 14px;
-            border-radius: 999px;
-            box-shadow: var(--shadow);
-            margin-bottom: 14px;
-        }
+</div>
 
-        h1, h2, h3 { font-family: "Baloo 2", cursive; line-height: 1.15; }
+        
+        <!-- about
 
-        h2.section-title {
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            color: var(--rose-deep);
-            margin: 0 0 10px;
-        }
+        Purpose:
+        - Section for general info about the event
+        - Contains a video, description, and key points about the event
 
-        /* ===== Hero ===== */
-        .hero {
-            position: relative;
-            text-align: center;
-            padding-top: clamp(40px, 6vw, 70px);
-            overflow: hidden;
-        }
-        .hero .logo {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 6px solid var(--cream);
-            box-shadow: var(--shadow);
-            margin: 0 auto 18px;
-            display: block;
-            animation: bob 4s ease-in-out infinite;
-        }
-        @keyframes bob {
-            0%, 100% { transform: translateY(0); }
-            50%      { transform: translateY(-10px); }
-        }
-        .hero h1 {
-            font-size: clamp(2.2rem, 6vw, 3.6rem);
-            font-weight: 800;
-            color: var(--rose-deep);
-            margin: 6px 0 10px;
-        }
-        .hero .tagline {
-            font-size: clamp(1.05rem, 2.6vw, 1.3rem);
-            max-width: 620px;
-            margin: 0 auto 26px;
-            color: var(--plum);
-        }
-        .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        When To Modify:
+        - [ ] Project 2 (REQUIRED FEATURE) 
+        - [ ] Project 2 (STRETCH FEATURE) 
+        - [ ] Project 4 (STRETCH FEATURE) 
+        - [ ] Any time between / after
+        --> 
+        <h2 id="about">About the Event</h2>
+        <iframe
+           width="500"
+           height="315"
+           src="https://www.youtube.com/embed/A_zL-dVWAtg"
+           title="YouTube video player"> 
+        </iframe>
+        <p>Having to raise both my younger brother and my cat Mimi together thaught me how
+           similar pets are to toddlers. When we talk about fur babies, they are no
+           different  from human baies! Hihi... I say so. Because they both gave me a
+           sweet tough time, and I loved every single moment! If you love cats or anyother 
+           fur animals, then you're at the right place lol!
+        </p>
 
-        /* Floating paw decorations */
-        .paw {
-            position: absolute;
-            font-size: 1.6rem;
-            opacity: 0.55;
-            animation: drift 7s ease-in-out infinite;
-            pointer-events: none;
-            user-select: none;
-        }
-        .paw.p1 { top: 14%; left: 8%;  animation-delay: 0s;   }
-        .paw.p2 { top: 30%; right: 10%; animation-delay: 1.5s; }
-        .paw.p3 { bottom: 16%; left: 14%; animation-delay: 3s; }
-        .paw.p4 { bottom: 24%; right: 16%; animation-delay: 2s; }
-        @keyframes drift {
-            0%, 100% { transform: translateY(0) rotate(-8deg); }
-            50%      { transform: translateY(-16px) rotate(8deg); }
-        }
+        <h3>Have you over been obssessed with something before? Well, mine is my Sweet Mimi</h3>
+        <h4>Tag Line</h4>
+        <ul>
+            <li> <b>Bullet 1:</b> <i>Description</i></li>
+            <li> <b>Bullet 2:</b> <i>Description</i></li>
+            <li> <b>Bullet 3:</b> <i>Description</i></li>
+        </ul>
 
-        /* ===== Buttons ===== */
-        button, .btn {
-            font-family: "Quicksand", sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            color: #fff;
-            background: var(--rose);
-            border: none;
-            border-radius: 999px;
-            padding: 12px 26px;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: var(--shadow);
-            transition: transform 0.15s ease, background 0.2s ease;
-        }
-        button:hover, .btn:hover { background: var(--rose-deep); transform: translateY(-2px); }
-        button:focus-visible, .btn:focus-visible {
-            outline: 3px solid var(--plum);
-            outline-offset: 2px;
-        }
-        .btn.ghost {
-            background: var(--cream);
-            color: var(--rose-deep);
-            border: 2px solid var(--rose);
-        }
-        .btn.ghost:hover { background: var(--blush-deep); }
+        <!-- schedule
 
-        /* ===== About ===== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 36px;
-            align-items: center;
-        }
-        .about-card {
-            background: var(--cream);
-            border-radius: var(--radius);
-            padding: 28px;
-            box-shadow: var(--shadow);
-        }
-        .feature-list { list-style: none; padding: 0; margin: 18px 0 0; }
-        .feature-list li {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-            padding: 10px 0;
-            border-bottom: 1px dashed var(--blush-deep);
-        }
-        .feature-list li:last-child { border-bottom: none; }
-        .feature-list .emoji { font-size: 1.5rem; line-height: 1; }
-        .video-frame {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 5px solid var(--cream);
-        }
-        .video-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+        Purpose:
+        - Section for specific info about the event's schedule
+        - Contains images and descriptions of each activity
 
-        /* ===== Meet the cast ===== */
-        .meet { background: var(--blush-deep); }
-        .cast {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 26px;
-            margin-top: 30px;
-        }
-        .card {
-            background: var(--cream);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease;
-        }
-        .card:hover { transform: translateY(-6px); }
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
-        .card .body { padding: 20px 22px 26px; }
-        .card h3 { font-size: 1.4rem; margin: 0 0 8px; color: var(--rose-deep); }
-        .card p  { margin: 0; font-size: 0.98rem; }
-        /* Placeholder shown if an image is missing, so layout never breaks */
-        .card .ph {
-            width: 100%;
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            background: linear-gradient(135deg, var(--rose) 0%, var(--sun) 100%);
-        }
+        When To Modify:
+        - [ ] Project 2 (REQUIRED FEATURE) 
+        - [ ] Project 4 (STRETCH FEATURE) 
+        - [ ] Any time between / after
+        --> 
+        <h2 id="schedule">Event Schedule</h2>
 
-        /* ===== Links ===== */
-        .link-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .link-card {
-            display: block;
-            text-decoration: none;
-            color: var(--plum);
-            background: var(--cream);
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: var(--shadow);
-            border: 2px solid transparent;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .link-card:hover { transform: translateY(-4px); border-color: var(--rose); }
-        .link-card h3 { margin: 0 0 8px; color: var(--rose-deep); font-size: 1.2rem; }
-        .link-card p  { margin: 0; font-size: 0.95rem; }
+        <img alt="mimi my sweet cat" src="./img/mimi.jpg" />
+        <h3>Mimi 🐱</h3>
+        <p>
+           Meet Mimi, the fluffy queen of the house whose gentle personality melts everyone's heart.
+           Whether she's lounging in her favorite spot or curiously watching the world around her, 
+           Mimi brings warmth and comfort wherever she goes. Her soft fur and calm presence make
+           every day a little brighter.
+        </p>
+            
+        <img alt="Duke my little brother" src="./img/myBrother.jpg" />
+        <h3>Duke 👦</h3>
+        <p>
+           Duke is a bundle of energy, curiosity, and endless smiles.
+           Always ready for his next adventure, he fills every room with excitement and joy.
+           His playful spirit and cheerful personality make him the star of every family gathering.
+        </p>
 
-        /* ===== Footer ===== */
-        footer {
-            background: var(--rose);
-            color: #fff;
-            text-align: center;
-            padding: 36px 20px;
-            border-top: 5px solid var(--rose-deep);
-        }
-        footer p { margin: 4px 0; color: #fff; }
-        footer .heart { animation: beat 1.4s ease-in-out infinite; display: inline-block; }
-        @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+        <img alt="A picture of both mimi and Duke's cute moment" src="./img/Mimi_Duke.png" width="200"/>
+        <h3>Mimi & Duke Together ❤️</h3>
+        <p>
+           When Duke and Mimi are together, it's a heartwarming friendship full of love and companionship.
+           Duke's playful energy perfectly complements Mimi's gentle and calming nature.
+           Their special bond creates unforgettable moments that bring smiles to everyone who sees them together.
+       </p>
 
-        /* ===== Responsive ===== */
-        @media (max-width: 760px) {
-            .about-grid { grid-template-columns: 1fr; }
-            .navbar nav a { padding: 6px 10px; font-size: 0.92rem; }
-        }
 
-        /* Accessibility: skip link */
-        .skip {
-            position: absolute;
-            left: -999px;
-            background: var(--cream);
-            color: var(--rose-deep);
-            padding: 10px 16px;
-            border-radius: 8px;
-            z-index: 100;
-        }
-        .skip:focus { left: 12px; top: 12px; }
-    </style>
-</head>
+        <!-- rsvp [PLACEHOLDER] [ADDED IN UNIT 6] -->
+        <!-- success modal [PLACEHOLDER] [ADDED IN UNIT 9] --> 
 
-<body>
-    <a class="skip" href="#about">Skip to content</a>
+        <!-- links
 
-    <!-- navbar -->
-    <header class="navbar">
-        <a class="brand" href="#top">🐾 Mimi's Pet Corner</a>
-        <nav aria-label="Main navigation">
-            <a href="#about">About</a>
-            <a href="#meet">Meet Mimi &amp; Duke</a>
-            <a href="#links">Fun Links</a>
-        </nav>
-    </header>
+        Purpose:
+        - Links to other resources related to the event
 
-    <!-- hero / headings -->
-    <section class="hero" id="top">
-        <span class="paw p1">🐾</span>
-        <span class="paw p2">🐾</span>
-        <span class="paw p3">🐾</span>
-        <span class="paw p4">🐾</span>
-        <div class="wrap">
-            <img class="logo" src="./img/logo500.png" alt="Mimi's Pet Corner logo" />
-            <h1>Welcome to Mimi's Pet Corner</h1>
-            <p class="tagline">Stories, friendship, and fun with a sweet cat named Mimi and her little buddy Duke.</p>
-            <div class="cta-row">
-                <a class="btn" href="#meet">Meet Mimi 🐱</a>
-                <a class="btn ghost" href="#meet">Meet Duke 👦</a>
-            </div>
-        </div>
-    </section>
+        When To Modify:
+        - [ ] Project 2 (STRETCH FEATURE) 
+        - [ ] Project 4 (STRETCH FEATURE) 
+        - [ ] Any time between / after
+        --> 
+        <h2 id="links">Links</h2>
 
-    <!-- about -->
-    <section id="about">
-        <div class="wrap">
-            <span class="eyebrow">Our Story</span>
-            <h2 class="section-title">A cat, a toddler, and a whole lot of love</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <p>
-                        Raising my little brother Duke alongside my cat Mimi taught me something special:
-                        pets and toddlers have more in common than we think. They're both full of curiosity,
-                        personality, and endless surprises. Through their adventures I learned patience,
-                        responsibility, and the joy of caring for others.
-                    </p>
-                    <p>
-                        If you love cats, pets, or heartwarming stories, you're in exactly the right place.
-                        Here's what you'll find around the corner:
-                    </p>
+        <!-- This <a> block is one link.  Copy and paste all 6 lines to create another link. -->
+        <a class="block" href="https://go.exlibris.link/64dKLzRh">
+            <article>
+                <h3>A Little Cat, Cat, Cat</h3>
+                <p>Learn more about the song, "A Little Cat, Cat, Cat" which I 
+                   sing to my brother every night before he goes to bed.
+                </p>
+            </article>
+        </a>
+            
+        <!-- footer [PLACEHOLDER] [ADDED IN UNIT 3] -->
+        <!-- script [PLACEHOLDER] [ADDED IN UNIT 5] -->
 
-                    <ul class="feature-list">
-                        <li><span class="emoji">🐱</span><span><b>Mimi's Adventures</b> — funny moments from Mimi's daily life.</span></li>
-                        <li><span class="emoji">👦</span><span><b>Duke's Stories</b> — exciting memories and playful discoveries.</span></li>
-                        <li><span class="emoji">❤️</span><span><b>Friendship</b> — heartwarming moments between Duke and Mimi.</span></li>
-                    </ul>
-                </div>
-                <div class="video-frame">
-                    <iframe
-                        src="https://www.youtube.com/embed/J---aiyznGQ"
-                        title="A cheerful video for Mimi's Pet Corner"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
+    </body>
+    <div class="footer">
+    <a href="https://www.aspca.org" target="_blank">ASPCA</a> |
+    <a href="https://www.petmd.com" target="_blank">PetMD</a>
 
-    <!-- meet the cast -->
-    <section id="meet" class="meet">
-        <div class="wrap">
-            <span class="eyebrow">The Stars</span>
-            <h2 class="section-title">Meet Mimi &amp; Duke</h2>
-            <div class="cast">
-                <article class="card">
-                    <img src="./img/mimi.jpg" alt="Mimi, a fluffy and gentle cat"
-                         onerror="this.outerHTML='<div class=&quot;ph&quot;>🐱</div>'" />
-                    <div class="body">
-                        <h3>Mimi 🐱</h3>
-                        <p>
-                            Meet Mimi, the fluffy queen of the house whose gentle personality melts everyone's heart.
-                            Whether she's lounging in her favorite spot or curiously watching the world go by, Mimi
-                            brings warmth and comfort wherever she goes.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <img src="./img/myBrother.jpg" alt="Duke, a cheerful and energetic toddler"
-                         onerror="this.outerHTML='<div class=&quot;ph&quot;>👦</div>'" />
-                    <div class="body">
-                        <h3>Duke 👦</h3>
-                        <p>
-                            Duke is a bundle of energy, curiosity, and endless smiles. Always ready for his next
-                            adventure, he fills every room with excitement and joy, and he's the star of every
-                            family gathering.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <img src="./img/Mimi_Duke.png" alt="Mimi and Duke sharing a cute moment together"
-                         onerror="this.outerHTML='<div class=&quot;ph&quot;>❤️</div>'" />
-                    <div class="body">
-                        <h3>Mimi &amp; Duke Together ❤️</h3>
-                        <p>
-                            When Duke and Mimi are together, it's a heartwarming friendship full of love. Duke's
-                            playful energy perfectly complements Mimi's calm nature, and their bond creates
-                            unforgettable moments.
-                        </p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- links -->
-    <section id="links">
-        <div class="wrap">
-            <span class="eyebrow">For Curious Kids</span>
-            <h2 class="section-title">Fun Links &amp; Things to Explore</h2>
-            <div class="link-grid">
-                <a class="link-card" href="https://www.aspca.org/pet-care/cat-care" target="_blank" rel="noopener">
-                    <h3>🐱 Cat Care Tips</h3>
-                    <p>Learn how to keep your cat healthy and happy with tips on feeding, grooming, and daily care.</p>
-                </a>
-                <a class="link-card" href="https://kids.nationalgeographic.com/animals" target="_blank" rel="noopener">
-                    <h3>🌎 Nat Geo Kids</h3>
-                    <p>Discover amazing animal facts, fun activities, and educational resources made for kids.</p>
-                </a>
-                <a class="link-card" href="https://www.petfinder.com/cats-and-kittens/" target="_blank" rel="noopener">
-                    <h3>❤️ Meet More Cats</h3>
-                    <p>Explore stories and photos of adorable cats and see how pets bring joy to families.</p>
-                </a>
-                <a class="link-card" href="https://www.youtube.com/results?search_query=cute+cats" target="_blank" rel="noopener">
-                    <h3>😸 Cute Cat Videos</h3>
-                    <p>Enjoy a collection of fun and entertaining cat videos that are sure to make you smile.</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- footer -->
-    <footer>
-        <p>🐾 Mimi's Pet Corner</p>
-        <p>Made with <span class="heart">❤️</span> by Elizabeth Frimpomaa</p>
-        <p>Celebrating friendship, pets, and happy memories.</p>
-    </footer>
-</body>
+    <p>© 2026 The Sweet Cat Mimi</p>
+</div>
 </html>
